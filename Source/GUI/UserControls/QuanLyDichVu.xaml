@@ -1,0 +1,188 @@
+﻿<UserControl x:Class="GUI.UserControls.QuanLyDichVu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUI.UserControls"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+             TextElement.FontFamily="Roboto"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             
+             d:DesignHeight="600" d:DesignWidth="800">
+
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="#439A97" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <!-- Các thiết lập khác cho giao diện của header -->
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+
+    <Grid Background="#FFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Width="800" Grid.Row="0" VerticalAlignment="Center">
+            <Grid VerticalAlignment="Center">
+                <!-- Search box -->
+                <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="100,0,0,0"
+                                          VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Search" Opacity=".56" />
+                        </Button>
+
+                        <TextBox Grid.Column="1" Name="txtFilter"
+                                Margin="0 0 0 0"
+                                materialDesign:HintAssist.Hint="Nhập tên dịch vụ cần tìm"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                BorderThickness="0"
+                                MinWidth="200"
+                                FlowDirection="LeftToRight"
+                                VerticalAlignment="Center" KeyDown="DichVu_KeyDown"/>
+                    </Grid>
+                </materialDesign:ColorZone>
+
+
+                <Button HorizontalAlignment="Left" x:Name="btnTimDichVu"                                                      
+                        Width="70" Height="36" Margin="365,0" 
+                        Content="Tìm"                                
+                        Background="#439A97" BorderBrush="Transparent" Click="btnTimDichVu_Click" >
+                    <Button.Clip>
+                        <RectangleGeometry Rect="0,0,70,36" RadiusX="10" RadiusY="10" >
+                        </RectangleGeometry>
+                    </Button.Clip>
+                </Button>
+
+                <Button HorizontalAlignment="Right" x:Name="btnThemPichVu"                                                      
+                        Width="160" Height="36" Margin="0 0 100 0" 
+                        Content="Thêm dịch vụ"                                
+                        Background="#439A97" BorderBrush="Transparent" Click="btnThemDichVu_Click">
+                    <Button.Clip>
+                        <RectangleGeometry Rect="0,0,160,36" RadiusX="10" RadiusY="10" >
+                        </RectangleGeometry>
+                    </Button.Clip>
+                </Button>
+
+
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="data">
+
+        </Grid>
+        <Grid Grid.Row="1" Width="Auto">
+            <Grid.Resources>
+                <DataTemplate x:Key="dtpXoaDichVu">
+                    <Button x:Name="Delete" Width="20" Height="20" BorderThickness="0"  CommandParameter="{Binding IDDichVu}" Click="Delete_Click">
+                        <Button.Background>
+                            <ImageBrush  ImageSource="/GUI;component/Res/delete_vs2.png" Stretch="None"/>
+                        </Button.Background>
+                    </Button>
+                </DataTemplate>
+            </Grid.Resources>
+
+            <Grid HorizontalAlignment="Center" Background="#F2F1F1" Width="760" Height="400">
+                <Grid.Clip>
+                    <RectangleGeometry Rect="0,0,760,400" RadiusX="10" RadiusY="10"/>
+                </Grid.Clip>
+
+                <DataGrid Name="dgDichVu" RowHeight="40" AutoGenerateColumns="False" ItemsSource="{Binding MyDichVuList}"  
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#FFFCFCFC"  CanUserAddRows="False" >
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="100" Header="Mã DV" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IDDichVu}"  HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="130" Header="Tên DV" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TenDV}"  HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="90" Header="Giá" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Gia}"  HorizontalAlignment="Center" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="70" Header="SL" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding SL}"  HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="70" Header="KM" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding KM}"  HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="100" Header="TT" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TinhTrang}"  HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+
+                        <DataGridTemplateColumn Width="100" Header="Sửa" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Width="20" Height="20" BorderThickness="0" Click="Button_Click" CommandParameter="{Binding IDDichVu}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Xóa" CellTemplate="{StaticResource dtpXoaDichVu}" Width="100" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}" />
+
+
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+            <Button Content="X" HorizontalAlignment="Left" Margin="745,-53,0,0" VerticalAlignment="Top"  Background="#439A97" Click="Button_Click_1" BorderBrush="Transparent"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

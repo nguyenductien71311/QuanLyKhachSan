@@ -1,0 +1,89 @@
+﻿<Window x:Class="GUI.View.ThanhToan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
+        TextElement.FontFamily="Roboto"
+        AllowsTransparency="True"         
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="ThanhToan" Height="400" Width="450">
+
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,450,400" RadiusX="10" RadiusY="10"/>
+    </Window.Clip>
+
+    <Border BorderThickness="1" BorderBrush="#2C2A2A" CornerRadius="10">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="200" ></RowDefinition>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <!--Làm phần tiêu đề -->
+            <Grid Grid.Row="0">
+                <TextBlock Name="txbTitle" Text="Thanh Toán"  
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Height="40"
+                               FontSize="30"
+                               FontWeight="Bold" 
+                               Foreground="#439A97"
+                                
+                     />
+            </Grid>
+
+            <!--Làm phần phần nút thanh toán -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Button Content="Tiền Cọc" Name="btnTienCoc" 
+                                    Width="100" Height="40"
+                                    Margin=" 4 4 0 0" 
+                                    Background="#439A97" BorderBrush="Transparent" Click="btnTienCoc_Click">
+                        <Button.Clip>
+                            <RectangleGeometry Rect="0,0,100,40" RadiusX="10" RadiusY="10" >
+                            </RectangleGeometry>
+                        </Button.Clip>
+                    </Button>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button Content="Toàn Bộ" Name="btnToanBo" 
+                                    Width="100" Height="40"
+                                    Margin=" 4 4 0 0" 
+                                    Background="#439A97" BorderBrush="Transparent" Click="btnToanBo_Click">
+                        <Button.Clip>
+                            <RectangleGeometry Rect="0,0,100,40" RadiusX="10" RadiusY="10" >
+                            </RectangleGeometry>
+                        </Button.Clip>
+                    </Button>
+                </Grid>
+
+            </Grid>
+            <!--Làm nút nhập thêm hoặc hủy -->
+            <Grid Grid.Row="2" Grid.RowSpan="2">
+                <Grid Width="260" Margin="130 0 0 0">
+                    <Grid Margin="0,0,-31,0" HorizontalAlignment="Right" Width="448">
+                        <Button x:Name="btnHuy"
+                                    Width="89" Height="40"                                    
+                                    Content="Quay lại" 
+                                    Background="#9D9999" BorderBrush="Transparent" Click="btnHuy_Click" Margin="86,13,86,21">
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                        </Button>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

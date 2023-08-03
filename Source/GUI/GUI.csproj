@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B5EF892-B1A4-4856-B7B0-A3029C5016A2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=2.1.4.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.1.4\lib\net462\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.9.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.9.0\lib\net462\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="UserControls\DanhSachPhong.xaml.cs">
+      <DependentUpon>DanhSachPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DanhSachPhong_GH.xaml.cs">
+      <DependentUpon>DanhSachPhong_GH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PhuongTienDiChuyen.xaml.cs">
+      <DependentUpon>PhuongTienDiChuyen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyDatPhong.xaml.cs">
+      <DependentUpon>QuanLyDatPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyDichVu.xaml.cs">
+      <DependentUpon>QuanLyDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyDichVuTour.xaml.cs">
+      <DependentUpon>QuanLyDichVuTour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyHoaDon.xaml.cs">
+      <DependentUpon>QuanLyHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyKhachHang.xaml.cs">
+      <DependentUpon>QuanLyKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyLoaiPhong.xaml.cs">
+      <DependentUpon>QuanLyLoaiPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyNhanVien.xaml.cs">
+      <DependentUpon>QuanLyNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyPhong.xaml.cs">
+      <DependentUpon>QuanLyPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QuanLyTaiKhoan.xaml.cs">
+      <DependentUpon>QuanLyTaiKhoan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietDatPhong.xaml.cs">
+      <DependentUpon>ChiTietDatPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietPhong.xaml.cs">
+      <DependentUpon>ChiTietPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DangNhap.xaml.cs">
+      <DependentUpon>DangNhap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HoaDonTienCoc.xaml.cs">
+      <DependentUpon>HoaDonTienCoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HoaDonToanBo.xaml.cs">
+      <DependentUpon>HoaDonToanBo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LichSuDatPhong.xaml.cs">
+      <DependentUpon>LichSuDatPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuenMatKhau.xaml.cs">
+      <DependentUpon>QuenMatKhau.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SuaDatPhong.xaml.cs">
+      <DependentUpon>SuaDatPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SuaLoaiPhong.xaml.cs">
+      <DependentUpon>SuaLoaiPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SuaNhanVien.xaml.cs">
+      <DependentUpon>SuaNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SuaPhong.xaml.cs">
+      <DependentUpon>SuaPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SuaTaiKhoan.xaml.cs">
+      <DependentUpon>SuaTaiKhoan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SuaThongTinKhachHang.xaml.cs">
+      <DependentUpon>SuaThongTinKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sua_DichVu.xaml.cs">
+      <DependentUpon>Sua_DichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sua_PhuongTien.xaml.cs">
+      <DependentUpon>Sua_PhuongTien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sua_TourDuLich.xaml.cs">
+      <DependentUpon>Sua_TourDuLich.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThanhToan.xaml.cs">
+      <DependentUpon>ThanhToan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemDichVu.xaml.cs">
+      <DependentUpon>ThemDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemDichVuTour.xaml.cs">
+      <DependentUpon>ThemDichVuTour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemSanPham.xaml.cs">
+      <DependentUpon>ThemSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_DichVu.xaml.cs">
+      <DependentUpon>Them_DichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_PhuongTien.xaml.cs">
+      <DependentUpon>Them_PhuongTien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DatPhong.xaml.cs">
+      <DependentUpon>DatPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemLoaiPhong.xaml.cs">
+      <DependentUpon>ThemLoaiPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemNhanVien.xaml.cs">
+      <DependentUpon>ThemNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemPhong.xaml.cs">
+      <DependentUpon>ThemPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ThemTaiKhoan.xaml.cs">
+      <DependentUpon>ThemTaiKhoan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_TourDuLich.xaml.cs">
+      <DependentUpon>Them_TourDuLich.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserControls\DanhSachPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DanhSachPhong_GH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PhuongTienDiChuyen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyDatPhong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\QuanLyDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyDichVuTour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyHoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyLoaiPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QuanLyTaiKhoan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChiTietDatPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChiTietPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DangNhap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HoaDonTienCoc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HoaDonToanBo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LichSuDatPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\QuenMatKhau.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SuaDatPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SuaLoaiPhong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SuaNhanVien.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SuaPhong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SuaTaiKhoan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SuaThongTinKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sua_DichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sua_PhuongTien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sua_TourDuLich.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThanhToan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_DichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_PhuongTien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DatPhong.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThemLoaiPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemTaiKhoan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ThemDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemDichVuTour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_TourDuLich.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{61a5a193-0203-4ef3-a62c-1c7cc7207096}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{56bfd25e-5ef7-499c-9cfa-1261cec3b3e3}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\backGround_DN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\delete_vs2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\detail.png" />
+    <Resource Include="Res\payment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\bg_2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>

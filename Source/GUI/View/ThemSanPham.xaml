@@ -1,0 +1,157 @@
+﻿<Window x:Class="GUI.View.ThemSanPham"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.FontFamily="Roboto"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="ChiTietDatPhong" Height="400" Width="700">
+
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,700,400" RadiusX="16" RadiusY="16">
+        </RectangleGeometry>
+    </Window.Clip>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="#439A97" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <!-- Các thiết lập khác cho giao diện của header -->
+            </Style>
+            <DataTemplate x:Key="dtpXoa">
+                <Button x:Name="Delete" Width="20" Height="20" BorderThickness="0">
+                    <Button.Background>
+                        <ImageBrush  ImageSource="/GUI;component/Res/delete_vs2.png" Stretch="None"/>
+                    </Button.Background>
+                </Button>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border BorderThickness="4" BorderBrush="#439A97" CornerRadius="14">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="280"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Grid Grid.Row="0">
+                <TextBlock x:Name="txblTieuDe" Text="Sản phẩm" FontSize="32" Foreground="#439A97" FontWeight="Black"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <!-- Content -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="260"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- Thêm -->
+                <Grid Grid.Column="0" Margin="40 0 0 0">
+                    <Border Background="#EBEBEB" BorderBrush="#FF807D7D" CornerRadius="8">
+                        <Grid>
+                            <!-- Chọn sản phẩm -->
+                            <TextBlock Text="Chọn sản phẩm" FontSize="11" FontWeight="Bold"
+                                       HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 28 0 0"></TextBlock>
+                            <Border Background="#FFFFFF" Width="180" Height="28" CornerRadius="2"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 46 0 0">
+
+                                <ComboBox x:Name="MyComboBox" Height="28" FontSize="10" BorderThickness="0,0,0,0" SelectedIndex="0" Padding="10,0,10,0" SelectionChanged="ComboBox_SelectionChanged">
+                                </ComboBox>
+
+                            </Border>
+
+                            <!-- Chọn số lượng -->
+                            <!-- Chọn số lượng -->
+                            <TextBlock Text="Số lượng" FontSize="11" FontWeight="Bold" x:Name="txtSL"
+           HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 90 0 0"></TextBlock>
+                            <Border Background="#FFFFFF" Width="180" Height="28" CornerRadius="2"
+        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 108 0 0">
+                                <TextBox x:Name="txtSLValue" FontSize="10" BorderThickness="0,0,0,0" Padding="10,8,10,8"
+             Text="{Binding SelectedQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            </Border>
+
+
+                            <!-- Button Thêm -->
+                            <Button Background="#439A97" BorderBrush="Transparent" Width="58" Height="24"
+                                    Content="Thêm" FontSize="10" FontWeight="Bold"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81 224 0 0"
+                                    BorderThickness="0,0,0,0" Click="Button_Click_1"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <!-- Thông tin dịch vụ -->
+                <Grid Grid.Column="1" Margin="10 0 40 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="287*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Background="#EBEBEB" BorderBrush="#FF807D7D" CornerRadius="8" Grid.ColumnSpan="2">
+                        <Grid HorizontalAlignment="Center" Background="#F2F1F1" Width="382">
+                            <Grid.Clip>
+                                <RectangleGeometry Rect="0,0,700,400" RadiusX="10" RadiusY="10"/>
+                            </Grid.Clip>
+
+                            <Grid Background="#FFFFFF">
+
+                                <Grid Grid.Row="1" Width="Auto">
+                                    <Grid HorizontalAlignment="Center" Background="#F2F1F1" Width="380" Height="250">
+                                        <Grid.Clip>
+                                            <RectangleGeometry Rect="0,0,700,400" RadiusX="10" RadiusY="10"/>
+                                        </Grid.Clip>
+
+                                        <DataGrid Name="dgSanPham" RowHeight="40" AutoGenerateColumns="False"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="#FFFCFCFC"
+                                         CanUserAddRows="False" ItemsSource="{Binding danhSachSanPham}">
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Width="100" Header="Tên SP" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                Binding="{Binding TenDV}" />
+                                                <DataGridTextColumn Width="130" Header="Số lượng" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                Binding="{Binding SL}" />
+                                                <DataGridTextColumn Width="100" Header="Thành tiền" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                                                Binding="{Binding TongTien}" />
+                                                <DataGridTemplateColumn Width="55" Header="Xóa" HeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+                                                    <DataGridTemplateColumn.CellTemplate>
+                                                        <DataTemplate>
+                                                            <Button Width="20" Height="20" BorderThickness="0"
+                                                                 Click="Button_Click_2"  CommandParameter="{Binding TenDV}">
+                                                                <Button.Background>
+                                                                    <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png" Stretch="None" />
+                                                                </Button.Background>
+                                                            </Button>
+                                                        </DataTemplate>
+                                                    </DataGridTemplateColumn.CellTemplate>
+                                                </DataGridTemplateColumn>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <!-- Buttons -->
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 0">
+
+                    <Button x:Name="btnHuy" BorderBrush="Transparent" Background="#439A97"  Content="Lưu" Width="60" Height="25" Margin="10 0 10 0" Click="Button_Click"/>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>

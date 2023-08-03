@@ -1,0 +1,55 @@
+﻿<Window x:Class="GUI.View.DangNhap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
+        x:Name="dangnhap"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None" AllowsTransparency="True"
+        mc:Ignorable="d"
+        Title="Đăng nhập" Height="600" Width="800"
+        
+        WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="../Res/bg_2.png"></ImageBrush>
+    </Window.Background>
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,800,600" RadiusX="10" RadiusY="10" x:Name="boGoc">
+        </RectangleGeometry>
+    </Window.Clip>
+    <Grid>
+        <Button Width="65" Height="60" x:Name="btn_Close" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent"
+                    BorderThickness="0" ToolTip="Close">
+            <Button.Clip>
+                <RectangleGeometry Rect="0,0,65,50" RadiusX="20" RadiusY="20">
+                </RectangleGeometry>
+            </Button.Clip>
+        </Button>
+        <Button x:Name="btnDangNhap" Background="#439A97" BorderBrush="Transparent" Content="Đăng nhập" HorizontalAlignment="Left" Margin="159,459,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.094,5.14" Width="106" Height="44" Click="btnDangNhap_Click"/>
+        <Label x:Name="btnQuenMK" Content="Quên mật khẩu" HorizontalAlignment="Left" Margin="168,417,0,0" VerticalAlignment="Top" Foreground="#FFFCF3F3" MouseDoubleClick="btnQuenMatKhau_Click" />
+        <TextBox x:Name="txtTenDN"  HorizontalAlignment="Left" Margin="124,300,0,0" TextWrapping="WrapWithOverflow"  VerticalAlignment="Top" Width="176"  Foreground="#FF727070" Height="32" Background="White" Visibility="Visible" TextAlignment="Left" FontSize="16" FontStretch="Medium" CharacterCasing="Normal"/>
+
+        <PasswordBox x:Name="txtMK1" HorizontalAlignment="Left" Margin="124,370,0,0" VerticalAlignment="Top" Width="176" Height="32" Background="White"/>
+        <Label x:Name="TenDangNhap" Content="Tên đăng nhập" HorizontalAlignment="Left" Margin="29,305,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+        <Label x:Name="Matkhau" Content="Mật khẩu" HorizontalAlignment="Left" Margin="44,375,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+
+        <Label Content="Đăng Nhập" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Margin="124,213,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+
+        <Button Content="x" Width="65" Height="60" x:Name="btn_Close123" 
+        HorizontalAlignment="Right" VerticalAlignment="Top" 
+        Background="Transparent" BorderThickness="0" Foreground="White"
+        ToolTip="Close" Click="btn_Close_Click" BorderBrush="#FFFDFDFD">
+        </Button>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" x:Name="displayMain">
+            <ContentControl x:Name="contentDisplayMain"></ContentControl>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,159 @@
+﻿<Window x:Class="GUI.View.ChiTietPhong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
+        TextElement.FontFamily="Roboto"
+        AllowsTransparency="True"         
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="ChiTietDatPhong" Height="400" Width="700">
+
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,700,400" RadiusX="15" RadiusY="15">
+        </RectangleGeometry>
+    </Window.Clip>
+
+    <Border BorderThickness="2" BorderBrush="#FF807D7D" CornerRadius="14">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="89*"/>
+                <ColumnDefinition Width="259*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="280"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <Grid Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,-0.2,0.4">
+                <TextBlock x:Name="txblTieuDe"  FontSize="32" Foreground="#439A97" FontWeight="Black"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <!-- Content -->
+            <Grid Grid.ColumnSpan="2" Margin="0,58,-0.2,0.4" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <!-- Thông tin khách và Thông tin phòng-->
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="160"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!-- Thông tin khách -->
+                    <Grid Grid.Row="0" Background="#626262" Margin="40 0 30 0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="278*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Khách:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,13,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="CCCD:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,28,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="Số điện thoại:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,43,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="Email:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,58,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="Số fax:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,73,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="Ngày check in:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,88,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="Ngày check out:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,103,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="Số người ở:" Width="100" FontSize="11" Foreground="#FFFFFF" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18.939,118,0,0" Grid.Column="1"></TextBlock>
+
+                        <!-- ************************************************************************************************** -->
+                        <TextBlock x:Name="txblTenKH" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,13,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblCCCD" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,28,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblSDT" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,43,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblEmail" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,58,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblFax" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,73,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblNgayCheckIn" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,88,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblNgayCheckOut" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,103,0,0" Grid.Column="1"></TextBlock>
+                        <TextBlock x:Name="txblSoNguoiO" Text="-" Width="140" FontSize="11" Foreground="#FFFFFF" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118.939,118,0,0" Grid.Column="1"></TextBlock>
+
+                    </Grid>
+
+                    <!-- Thông tin phòng -->
+                    <Grid Grid.Row="1" Background="#EBEBEB" Margin="40 10 30 0">
+                        <TextBlock Text="Trạng thái phòng:" Width="100" FontSize="11" Foreground="#000000" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35 23 0 0"></TextBlock>
+                        <TextBlock Text="Loại phòng:" Width="100" FontSize="11" Foreground="#000000" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35 40 0 0"></TextBlock>
+                        <TextBlock Text="Số người tối đa:" Width="100" FontSize="11" Foreground="#000000" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35 57 0 0"></TextBlock>
+                        <TextBlock Text="Tình trạng phòng:" Width="100" FontSize="11" Foreground="#000000" FontWeight="Bold"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35 74 0 0"></TextBlock>
+                        <!-- ************************************************************************************************** -->
+                        <TextBlock x:Name="txblTrangThai" Text="-" Width="140" FontSize="11" Foreground="#000000" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 23 0 0"></TextBlock>
+                        <TextBlock x:Name="txblLoaiPhong" Text="-" Width="140" FontSize="11" Foreground="#000000" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 40 0 0"></TextBlock>
+                        <TextBlock x:Name="txblSoNguoi" Text="-" Width="140" FontSize="11" Foreground="#000000" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 57 0 0"></TextBlock>
+                        <TextBlock x:Name="txblTinhTrang" Text="-" Width="140" FontSize="11" Foreground="#000000" FontStyle="Italic"
+                                   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135 74 0 0"></TextBlock>
+
+
+                    </Grid>
+
+                </Grid>
+
+                <!-- Thông tin dịch vụ -->
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Button x:Name="btnDV" Background="#439A97" Width="290" Height="70"
+                                Content="Sản phẩm" FontSize="28" FontWeight="Bold" BorderThickness="0,0,0,0"
+                                IsEnabled="False" Click="btnSP_Click"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Button x:Name="btnSP" Background="#439A97" Width="290" Height="70"
+                                Content="Dịch vụ" FontSize="28" FontWeight="Bold" BorderThickness="0,0,0,0"
+                                IsEnabled="False" Click="btnDV_Click"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Button x:Name="btnDVTour" Background="#439A97" Width="290" Height="70"
+                                Content="Dịch vụ Tour" FontSize="28" FontWeight="Bold" BorderThickness="0,0,0,0"
+                                IsEnabled="False" Click="btnDVTour_Click"/>
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+            <!-- Button -->
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,279.6,-0.2,-0.2" Grid.RowSpan="2">
+                <Button Background="#626262" BorderBrush="Transparent" Width="58" Height="24"
+                        Content="Thoát" FontSize="10" FontWeight="Bold"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Margin="585,0,0,0" BorderThickness="0,0,0,0" Click="Button_Click"></Button>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>
+

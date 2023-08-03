@@ -1,0 +1,57 @@
+﻿<Window x:Class="GUI.View.QuenMatKhau"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None" AllowsTransparency="True"
+        Title="QuenMatKhau" Height="600" Width="800"
+
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <ImageBrush ImageSource="../Res/bg_2.png"></ImageBrush>
+    </Window.Background>
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,800,600" RadiusX="10" RadiusY="10" x:Name="boGoc">
+        </RectangleGeometry>
+    </Window.Clip>
+
+    <Grid>
+        <Button Width="65" Height="60" x:Name="btn_Close" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Background="Transparent"
+                    BorderThickness="0" ToolTip="Close">
+            <Button.Clip>
+                <RectangleGeometry Rect="0,0,65,50" RadiusX="20" RadiusY="20">
+                </RectangleGeometry>
+            </Button.Clip>
+        </Button>
+        <Button x:Name="btnXacNhan" Background="#439A97" BorderBrush="Transparent" Content="Xác Nhận" HorizontalAlignment="Left" Margin="180,424,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.094,5.14" Width="106" Height="44" Click="btnXacNhan_Click"/>
+
+        <TextBox x:Name="txtMaNhanVien" HorizontalAlignment="Left" Margin="180,239,0,0" TextWrapping="WrapWithOverflow"  VerticalAlignment="Top" Width="176"  Foreground="#FF727070" Height="32" Background="White" Visibility="Visible" TextAlignment="Left" FontSize="16" FontStretch="Medium" CharacterCasing="Normal"/>
+        <TextBox x:Name="txtMatKhauMoi" HorizontalAlignment="Left" Margin="180,300,0,0" TextWrapping="WrapWithOverflow"  VerticalAlignment="Top" Width="176"  Foreground="#FF727070" Height="32" Background="White" Visibility="Visible" TextAlignment="Left" FontSize="16" FontStretch="Medium" CharacterCasing="Normal"/>
+        <TextBox x:Name="txtXacNhanMatKhau" HorizontalAlignment="Left" Margin="180,353,0,0" TextWrapping="WrapWithOverflow"  VerticalAlignment="Top" Width="176"  Foreground="#FF727070" Height="32" Background="White" Visibility="Visible" TextAlignment="Left" FontSize="16" FontStretch="Medium" CharacterCasing="Normal"/>
+
+
+        <Label x:Name="MaNhanVien" Content="Mã Nhân Viên" HorizontalAlignment="Left" Margin="76,243,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+        <Label x:Name="MatKhauMoi" Content="Mật Khẩu Mới" HorizontalAlignment="Left" Margin="76,305,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+        <Label x:Name="XacNhanMatKhau" Content="Xác Nhận Mật Khẩu" HorizontalAlignment="Left" Margin="45,358,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+
+        <Label Content="Quên Mật Khẩu" FontSize="30" FontWeight="Bold" HorizontalAlignment="Left" Margin="121,140,0,0" VerticalAlignment="Top" Background="{Binding ElementName=btnQuenMK, Mode=OneWay}" Foreground="White" RenderTransformOrigin="0.124,-0.326"/>
+
+        <Button Content="x" Width="65" Height="60" x:Name="btn_Close123" 
+        HorizontalAlignment="Right" VerticalAlignment="Top" 
+        Background="Transparent" BorderThickness="0" 
+        ToolTip="Close" BorderBrush="#FFFDFDFD" Click="btnClose_Click">
+        </Button>
+
+    </Grid>
+</Window>
